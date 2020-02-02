@@ -27,7 +27,7 @@ let weatherKey = keys.weatherKey;
 
 // get weather
 async function getWeather() {
-    let api_url = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=metric&appid="+weatherKey+"";
+    let api_url = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=metric&appid=3a41ba0972142b44abd54a8ab2b2ec7d";
     let response = await fetch(api_url);
     let data = await response.json();
     let cityName = data.city.name; 
