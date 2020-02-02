@@ -23,7 +23,7 @@ dateNow();
 // default city
 let city = "Florence"
 
-let weatherKey = keys.weatherKey;
+// let weatherKey = keys.weatherKey;
 
 // get weather
 async function getWeather() {
