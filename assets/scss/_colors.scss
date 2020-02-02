@@ -1,0 +1,83 @@
+
+$colorDark: #241b2d;
+$colorLight: #362c41c2;
+$colorLightest: #78698627;
+
+.darkBlue {
+    .widgetBox {    
+        background-color: $colorDark;   
+        color: white;
+    }
+    .light {
+        background-color: $colorLightest;
+    }
+    .inputBox input {
+        background-color: $colorDark;
+        color:white;
+    }
+    .inputBox input:hover {
+        background-color: $colorLightest;
+        color: $colorDark;;
+    }
+    .inputBox input:hover {
+        background-color: $colorLightest;
+        color: $colorDark;
+    }
+    .inputBox button {
+        background-color: $colorDark;
+        color: white;
+    }
+    .inputBox button:hover {
+        background-color: $colorLight;
+    }
+}
+.blue {
+    background-color: $colorDark;
+    color: white;
+    &:hover {
+        background-color: $colorLight;
+    }
+}
+
+
+$colorDarkRed: #1f1e1e;
+$colorLightRed: #444444c2;
+$colorLightestRed: #9c9c9c27;
+
+
+.darkRed {
+    .widgetBox {    
+        background-color: $colorDarkRed;   
+        color: white;
+    }
+    .light {
+        background-color: $colorLightestRed;
+    }
+    .inputBox input {
+        background-color: $colorDarkRed;
+        color:white;
+    }
+    .inputBox input:hover {
+        background-color: $colorLightestRed;
+        color: $colorDark;;
+    }
+    .inputBox input:hover {
+        background-color: $colorLightestRed;
+        color: $colorDark;
+    }
+    .inputBox button {
+        background-color: $colorDarkRed;
+        color: white;
+    }
+    .inputBox button:hover {
+        background-color: $colorLightRed;
+    }
+}
+
+.red {
+    background-color: $colorDarkRed;
+    color: white;
+    &:hover {
+        background-color: $colorLightRed;
+    }
+}
