@@ -60,7 +60,7 @@ async function getWeather() {
         } else {
             nightTemp.push(data.list[i].main.temp);
         }
-        if (hours == 12) {
+        if (hours == 0) {          
             weekDaysArray.push(dayWeekDay);
             dayIcon.push(data.list[i].weather[0].icon)
         } else if (hours == 3) {
