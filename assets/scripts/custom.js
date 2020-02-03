@@ -102,13 +102,17 @@ function getInputValue(){
 
     getWeather()
     .then(response => {
-        console.log('veikia')
+        console.log('get city weather reponse ok')
     })
     .catch(error => {
         console.log('error');
         console.error(error);
     });    
 }
+
+document.querySelector(".get-weather").addEventListener("click", function(){
+    getInputValue();
+});
 
 let classes = document.querySelector(".main-color").classList;
     document.querySelector(".color-button .red").addEventListener("click", function(){
