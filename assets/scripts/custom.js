@@ -1,6 +1,5 @@
 "use strict";
 
-
 // average function
 function average(array) {
     let sum = 0;
@@ -23,11 +22,11 @@ dateNow();
 // default city
 let city = "Florence"
 
-// let weatherKey = keys.weatherKey;
+let weatherKey = keys.weatherKey;
 
 // get weather
 async function getWeather() {
-    let api_url = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=metric&appid=3a41ba0972142b44abd54a8ab2b2ec7d";
+    let api_url = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=metric&appid="+weatherKey+"";
     let response = await fetch(api_url);
     let data = await response.json();
     let cityName = data.city.name; 
@@ -41,16 +40,13 @@ async function getWeather() {
     document.querySelector("#weekDayNow p").innerHTML = weekDays[dayNow];
     document.querySelector("#nowTemp h1").innerHTML = nowTemp.toFixed(1) + '&#8451';
     document.querySelector("#nowDescription").innerHTML = nowDescription;
-    document.querySelector("#nowIcon").src = "http://openweathermap.org/img/wn/"+nowIcon+"@2x.png";
-
-    console.log(dayNow);
+    document.querySelector("#nowIcon").src = "https://openweathermap.org/img/wn/"+nowIcon+"@2x.png";
 
     let dayTemp = [];
     let nightTemp = [];
     let weekDaysArray = [];
     let dayIcon = [];
     let nightIcon = [];
-
 
     for ( let i=0; i<data.list.length; i++) {
         let dat = data.list[i].dt_txt;
@@ -59,13 +55,11 @@ async function getWeather() {
         let day = date.getDay();
         let dayWeekDay = weekDays[day];
 
-        if ( hours < 21 && hours > 7) {
-         
+        if ( hours < 21 && hours > 7) {      
             dayTemp.push(data.list[i].main.temp);
         } else {
             nightTemp.push(data.list[i].main.temp);
         }
-    
         if (hours == 12) {
             weekDaysArray.push(dayWeekDay);
             dayIcon.push(data.list[i].weather[0].icon)
@@ -86,8 +80,8 @@ async function getWeather() {
         nightTempArray[i] = nightTemp.slice(i * 4, i * 4 + 4);
         nightTempAvgArray[i] = (average(nightTempArray[i])).toFixed(1);
         document.querySelector("#day"+i+" p").innerHTML = weekDaysArray[i];
-        document.querySelector("#day"+i+"_icon img").src = "http://openweathermap.org/img/wn/"+dayIcon[i]+".png";
-        document.querySelector("#day"+i+"_night-icon img").src = "http://openweathermap.org/img/wn/"+nightIcon[i]+".png";
+        document.querySelector("#day"+i+"_icon img").src = "https://openweathermap.org/img/wn/"+dayIcon[i]+".png";
+        document.querySelector("#day"+i+"_night-icon img").src = "https://openweathermap.org/img/wn/"+nightIcon[i]+".png";
         document.querySelector("#day"+i+"_day p").innerHTML = dayTempAvgArray[i] + '&#8451';
         document.querySelector("#day"+i+"_night p").innerHTML =  nightTempAvgArray[i] + '&#8451';
     }
@@ -113,8 +107,7 @@ function getInputValue(){
     .catch(error => {
         console.log('error');
         console.error(error);
-    });
-    
+    });    
 }
 
 let classes = document.querySelector(".main-color").classList;
@@ -129,8 +122,3 @@ let classes = document.querySelector(".main-color").classList;
     document.querySelector(".color-button .white").addEventListener("click", function(){
         classes.remove(classes.item(1));     
     })
-
-
-
-
-
